@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs');
+const { parse } = require('querystring');
 
 const app = express();
 
@@ -29,7 +30,36 @@ app.get('/api/notes', (req, res, next) => {
         console.error(err);
         res.status(404).send();
     }
+});
 
+app.post('/api/notes', (req, res, next) => {
+    // Parse incoming request body
+    let body = '';
+    req.on('data', data => {
+        body += data.toString();
+    }).on('end', () => {
+        const newNote = parse(body);
+
+        if (Object.keys(newNote).length !== 0) {
+            fs.readFile(__dirname + '/db/db.json', 'utf-8', (err, data) => {
+                if (err) {
+                    throw err;
+                }
+
+                data = JSON.parse(data);
+                data.push(newNote);
+                console.log(JSON.stringify(data));
+
+                fs.writeFile(__dirname + '/db/db.json', JSON.stringify(data), err => {
+                    if (err) throw err;
+                    console.log('Success.')
+                });
+            })
+            res.status(201).send(newNote);
+        } else {
+            throw new Error('Something went wrong.');
+        }
+    });
 })
 
 app.listen(PORT, () => console.log(`Example app listening on PORT ${PORT}!`))
