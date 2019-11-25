@@ -89,6 +89,11 @@ npm install
 node server.js
 ```
 
+Or, alternatively, you can go to:
+```
+https://uoft-bootcamp-notetaker.herokuapp.com/
+```
+
 ## Submission on BCS
 
 You are required to submit the following:
