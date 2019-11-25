@@ -66,18 +66,22 @@ app.post('/api/notes', (req, res, next) => {
 app.delete('/api/notes/:id', (req, res, next) => {
     // Get the id of the note being deleted
     const id = req.params.id;
-
-    fs.readFile(__dirname + '/db/db.json', 'utf-8', (err, data) => {
+    console.log(id);
+    fs.readFile(__dirname + '/db/db.json', 'utf-8', (err, notes) => {
         if (err) {
             throw err;
         }
 
-        data = JSON.parse(data);
-        // Note's id corresponds the index position in notesArray
-        data.splice(id, 1);
-
+        notes = JSON.parse(notes);
+        // Loop through the notes array to match the note that is being deleted
+        for (let i = 0; i < notes.length; i++) {
+            console.log(notes[i].id)
+            if (notes[i].id === parseInt(id)) {
+                notes.splice(i, 1);
+            }
+        }
         // Rewrite the updated notes array
-        fs.writeFile(__dirname + '/db/db.json', JSON.stringify(data), err => {
+        fs.writeFile(__dirname + '/db/db.json', JSON.stringify(notes), err => {
             if (err) throw err;
 
             console.log('Success.')
