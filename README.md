@@ -1,4 +1,4 @@
-# UofT Full-Stack Web Development Bootcamp Project #9: Node.js/Express.js Note Taker
+# UofT SCS Full-Stack Web Development Boot Camp Project #9: Node.js/Express.js Note Taker
 
 A Node.js/Express.js application that can be used to write, save, and delete notes
 
