@@ -74,7 +74,7 @@ server.js      // Server app
 
 ## Demo
 
-![UofT BootCamp Note Taker App](./public/img/UofT_BootCamp_NoteTaker.gif)
+![UofT BootCamp Note Taker App](./public/assets/img/UofT_BootCamp_NoteTaker.gif)
 
 ## Getting Started
 
