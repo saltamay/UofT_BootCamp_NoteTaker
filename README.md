@@ -80,7 +80,7 @@ server.js      // Server app
 
 1. Clone the repo:
 ```
-git clone https://github.com/saltamay/UofT_SCS_CBC_Note_Taker.git
+https://github.com/saltamay/UofT_BootCamp_NoteTaker.git
 ```
 
 2. Install the dependencies:
@@ -91,6 +91,11 @@ npm install
 3. Run the app:
 ```
 node server.js
+```
+
+Or, alternatively, you can go to:
+```
+https://uoft-bootcamp-notetaker.herokuapp.com/
 ```
 
 ## Submission on BCS
