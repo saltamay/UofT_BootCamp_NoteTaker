@@ -66,7 +66,6 @@ app.post('/api/notes', (req, res, next) => {
 app.delete('/api/notes/:id', (req, res, next) => {
     // Get the id of the note being deleted
     const id = req.params.id;
-    console.log(id);
     fs.readFile(__dirname + '/db/db.json', 'utf-8', (err, notes) => {
         if (err) {
             throw err;
@@ -75,7 +74,6 @@ app.delete('/api/notes/:id', (req, res, next) => {
         notes = JSON.parse(notes);
         // Loop through the notes array to match the note that is being deleted
         for (let i = 0; i < notes.length; i++) {
-            console.log(notes[i].id)
             if (notes[i].id === parseInt(id)) {
                 notes.splice(i, 1);
             }
