@@ -76,7 +76,7 @@ server.js      // Server app
 
 1. Clone the repo:
 ```
-git clone https://github.com/saltamay/UofT_SCS_CBC_Note_Taker.git
+https://github.com/saltamay/UofT_BootCamp_NoteTaker.git
 ```
 
 2. Install the dependencies:
